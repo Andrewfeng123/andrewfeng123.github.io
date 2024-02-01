@@ -1,9 +1,9 @@
 main:
   - title: Writings
-    url: /writings/
+    url: /writings
   - title: Teaching
-    url: /teaching/
+    url: /teaching
   - title: Projects
-    url: /projects/
+    url: /projects
   - title: Mountain Biking
-    url: /biking/
+    url: /biking
