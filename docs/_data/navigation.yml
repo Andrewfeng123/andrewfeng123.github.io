@@ -1,0 +1,9 @@
+main:
+  - title: Writings
+    url: /writings/
+  - title: Teaching
+    url: /teaching/
+  - title: Projects
+    url: /projects/
+  - title: Mountain Biking
+    url: /biking/
