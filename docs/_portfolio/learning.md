@@ -1,5 +1,7 @@
 ---
 title: "Things I'm Learning"
+date: 2024-02-23
+last_modified_at: 2024-02-23
 # excerpt: 
 header:
   # image: 

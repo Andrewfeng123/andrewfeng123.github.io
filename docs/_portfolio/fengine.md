@@ -1,5 +1,7 @@
 ---
 title: "Fengine: a 2D game engine"
+date: 2024-02-15
+last_modified_at: 2024-02-15
 excerpt: "A personal 2D game engine from way back"
 header:
   image: /assets/fengine_menu.jpg
