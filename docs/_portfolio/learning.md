@@ -24,6 +24,9 @@ A paper on applying a restricted case of Zilber's Trichotomy
 
 # Programming
 
+## Robotics
+Speed running the course *Modern Robotics* on [Coursera](https://www.coursera.org/specializations/modernrobotics)
+
 ## Unity's animation system
 
 Resources:
