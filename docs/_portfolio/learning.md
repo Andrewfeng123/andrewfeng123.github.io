@@ -19,8 +19,11 @@ This is just where I dump (keep track of) my learning progress before they turn 
 
 # Math
 
-## Model Theory
-A paper on applying a restricted case of Zilber's Trichotomy
+## [Model Theory](https://en.wikipedia.org/wiki/Model_theory)
+Trying to understand a paper on applying a restricted case of Zilber's Trichotomy to the field of complex numbers
+
+## [Natural Number Game](https://adam.math.hhu.de/#/g/leanprover-community/nng4)
+Looking into proof assistant for formalizing mathematics. I think model theory (and mathematical logic in general) is "under-formalized"!
 
 # Programming
 
