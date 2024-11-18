@@ -4,7 +4,8 @@ title: Teaching
 permalink: teaching
 ---
 ## At Waterloo
-- PMATH330: Introduction to Mathematical Logic (Fall 2023, Winter 2024)
+- PMATH330: Introduction to Mathematical Logic (Fall 2023, Winter 2024, Spring 2024)
+- MATH119: Calculus II for Engineers (Spring 2024)
 - Math Help Centre Tutor
 
 ## At Toronto

@@ -1,5 +1,3 @@
-I am a masters student in the Department of Pure Mathematics at the University of Waterloo studying model theory. Previously, I studied math and CS at the University of Toronto. In my spare time, you can find me shredding trails on my mountain [bike](/assets/bike.jpg).
+I recently graduated from the University of Waterloo with a Master's in Pure Mathematics. My research focus was [model theory](https://en.wikipedia.org/wiki/Model_theory), a branch of mathematical logic. Before that, I studied math and CS at the University of Toronto. <!-- In my spare time, you can find me shredding trails on my mountain [bike](/assets/bike.jpg). -->
 
-Academically, my [coursework](/courses) during university sums up the technical things I know.
-
-On the side, I'm currently learning about robotics and game engine programming! See [my learning page](/portfolio/learning).
+I am currently on the job market for software engineering. I am interested in projects where the performance/correctness is critical or where math is essential. Currently, I am learning about robotics, modern C++, physics simulation, and some machine learning. See [my learning page](/portfolio/learning).
