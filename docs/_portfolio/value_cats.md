@@ -11,6 +11,8 @@ sidebar:
     text: "programming"
 ---
 
+INCOMPLETE...
+
 I've been programming in C++ casually since high school, but I never really got the time to *really* understand it at a deep level. I have finally decided to actually learn ....
 
 # What they are not

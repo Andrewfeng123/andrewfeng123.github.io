@@ -28,7 +28,9 @@ Looking into proof assistant for formalizing mathematics. I think model theory (
 Even though C++ has always been my main language, I've never gotten the time to properly learn it in depth. That is about to change! 
 
 ## Robotics
-Speed running the course *Modern Robotics* on [Coursera](https://www.coursera.org/specializations/modernrobotics)
+Finished the course *Modern Robotics* on [Coursera](https://www.coursera.org/specializations/modernrobotics)
+
+The math is a little "incorrect" in the book, I prefer the book by Murray, Li, and Sastry called *A Mathematical Introduction to Robotics Manipulation*. Neither book talks about Lagrangian mechanics in any depth, and for that I recommend the all the classic *Mathematical Methods of Classical Mechanics* by Arnold!
 
 ## Unity's animation system
 
