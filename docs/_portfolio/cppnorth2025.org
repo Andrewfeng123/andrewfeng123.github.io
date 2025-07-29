@@ -1,3 +1,17 @@
-* James' request
-**
+* Taming a Beast: Using ONNX Runtime in AAA Games by Jean-Simon Lapointe
 
+Jean-Simon talks about Ubisoft's journey in incoporating ML in game engines. This is mainly for things that were dominated by traditional AI methods like navigation. The main advantage of ML over traditional methods is that the resulting behavior is more "human" out of the box, without requiring any behavior "patching".
+
+The typical workflow is as follows.
+
+** A team of data scientists train an ML model using their favorite framework.
+** Trained model is exported to ONNX format, such a model is essentially a graph with input nodes, operator nodes, and output nodes. For example, the input nodes could be the player's position and the destination, the operator nodes could be matrix multiplication or various mathematical functions, and the output node is the action the bot should take in the game.
+** In C++, ONNX runtime uses the exported model to compute things (aka "inferencing").
+
+I liked this talk because it really gave me a good picture of the infrastructure for using ML in "production", where training and deployment of AI are decoupled.
+
+Challanges:
+
+** integrating ONNX with game engine's custom memory management
+** for the shipped version, ONNX and all libraries it uses need to be compiled and various licenses checked with legal
+** exceptions are not okay in game dev, but ONNX throws exceptions; this can be turned off, but then it would just abort instead in situations with exceptions; the workaround is to add prechecks for all the conditions that would trigger exceptions.
