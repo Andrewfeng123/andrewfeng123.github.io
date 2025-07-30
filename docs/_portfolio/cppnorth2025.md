@@ -49,3 +49,7 @@ Background:
 * filter view
 
 <iframe width="800px" height="400px" src="https://godbolt.org/e?readOnly=true&hideEditorToolbars=true#g:!((g:!((g:!((h:codeEditor,i:(filename:'1',fontScale:14,fontUsePx:'0',j:1,lang:c%2B%2B,selection:(endColumn:2,endLineNumber:10,positionColumn:2,positionLineNumber:10,selectionStartColumn:2,selectionStartLineNumber:10,startColumn:2,startLineNumber:10),source:'%23include+%3Ciostream%3E%0A//+Type+your+code+here,+or+load+an+example.%0Aint+square(int+num)+%7B%0A++++return+num+*+num%3B%0A%7D%0A%0A%0Aint+main()+%7B%0A++++std::cout+%3C%3C+%22haha%22+%3C%3C+std::endl%3B%0A%7D'),l:'5',n:'0',o:'C%2B%2B+source+%231',t:'0')),k:99.99999999999999,l:'4',m:50,n:'0',o:'',s:0,t:'0'),(g:!((h:executor,i:(),l:'5',n:'0',o:'Executor+x86-64+gcc+15.1+(C%2B%2B,+Editor+%231)',t:'0')),header:(),l:'4',m:50,n:'0',o:'0',s:0,t:'0')),l:'3',n:'0',o:'',t:'0')),version:4"></iframe>
+
+
+the most efficient code is the code that is never run
+https://www.codeproject.com/Articles/5297814/Metaprogramming-in-Cplusplus-A-Gentle-Introduction
