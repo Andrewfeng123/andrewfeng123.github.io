@@ -125,12 +125,42 @@ A reason this code is performant is that views are lazily evaluated. This means 
 
 When using the pipe syntax for views, the things in between bars are called _range adaptors_ (for example, `filter(isEven)` and `take(3)`); applying range adaptors to views result in views. A complete list of range adaptors provided by the standard library can be found on cppreference: https://en.cppreference.com/w/cpp/ranges.html#Range_adaptors.
 
-# C++ Contracts: A Meaningfully Viable Product
+# C++ Contracts: A Meaningfully Viable Product & Should I Check for Null Here?
 
-This talk really resonated with me because I am a big fan of contracts in programming! When I think about programming, I think about invariants, contracts, and guarantees... When I use an API, I'd like to know what a piece of code can guarantee if I use it correctly. Good news, in C++26, we get contracts!
+These talks really resonated with me because I am a big fan of contracts in programming! When I program, I think about invariants, contracts, and guarantees... When I use an API, I'd like to know what a piece of code can guarantee if I use it correctly. Good news, in C++26, we get contracts!
 
+Without going into too many details, here's a minimal demo of what contracts in C++26 can achieve, taken from cppreference.
 
+```cpp
+#include <limits>
+#include <cmath>
+float tolerance = 10 * std::numeric_limits<float>::epsilon();
 
-the most efficient code is the code that is never run
-https://www.codeproject.com/Articles/5297814/Metaprogramming-in-Cplusplus-A-Gentle-Introduction
+bool isNormalized(std::array<float, 3> vector) {
+    return std::abs(std::hypot(vector[0], vector[1], vector[2]) - 1.f) <= tolerance;
+}
 
+bool isNormalizable(std::array<float, 3> vector) {
+    return std::hypot(vector[0], vector[1], vector[2]) > 0.f;
+}
+
+// function contract specifiers
+std::array<float, 3> normalize(std::array<float, 3> vector)
+    pre(isNormalizable(vector))
+    post(output: isNormalized(output))
+{
+    auto norm = std::hypot(vector[0], vector[1], vector[2]);
+    return std::array<float, 3> {vector[0] / norm, vector[1] / norm, vector[2] / norm};
+}
+```
+
+In addition to function contract specifiers shown above, C++26 also supports contract_assert statements, which are basically the same as C asserts syntatically.
+
+In the snippet, the part enclosed by `pre(...)` is the precondition; only the paramters of the function are in scope for the precondition. The part enclosed by `post(...)` is the postcondition; it names the return value `output` and asserts that it must be a normalized vector. Note how we can specify postconditions on unamed return values this way (we did not have to assign the return value to a variable named `output` and then assert before returning inside the function body.).
+
+The exact semantics of these assertions (i.e whether an assertion is checked, and what happens when it fails, etc) can vary per build, as well as per evaluation of assertion, and are implementation defined. A basic reason is so that different builds can have different behaviors. For example, a debug build could use a semantics that checks the asserts and teriminates on violation, while a release build can simple ignore all asserts. But maybe a more important reason is customizability. C++26 provides the ability to specify your own contract-violation handler, which is a function that takes in an object of type `std::contracts::contract_violation`. This object will contain diagnostic information so that you can decide what to do on a contract violation.
+
+## But what about C asserts?
+I think the advantage of contracts is precisely that it is a language feature rather than a macro! This leaves the door open for C++ compilers to use static analysis to optimize code (for example, a compiler can interpret an assert as an "assume"). This is also a step towards "code as proof", where we can have safety guarantees by chaining together pre/post-conditions.
+
+I think the proposals paper for contracts is very well-written and provides further context: [P2900R14](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2025/p2900r14.pdf).
