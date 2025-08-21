@@ -5,17 +5,14 @@ last_modified_at: 2024-07-24
 # excerpt: 
 header:
   # image: 
-  teaser: /assets/brain_filling.jpg
+  teaser: /assets/cppnorth_logo.png
 sidebar:
   - title: "Keywords"
     text: "programming"
 ---
 
-INCOMPLETE...
+## _Taming a Beast: Using ONNX Runtime in AAA Games_ by Jean-Simon Lapointe
 
-
-Taming a Beast: Using ONNX Runtime in AAA Games by Jean-Simon Lapointe
-====
 
 Jean-Simon talks about Ubisoft's journey in incoporating ML in game engines. This is mainly for things that were dominated by traditional AI methods like navigation. The main advantage of ML over traditional methods is that the resulting behavior is more "human" out of the box, without requiring any behavior "patching".
 
@@ -33,8 +30,8 @@ Challanges:
 * for the shipped version, ONNX and all libraries it uses need to be compiled and various licenses checked with legal
 * exceptions are not okay in game dev, but ONNX throws exceptions; this can be turned off, but then it would just abort instead in situations with exceptions; the workaround is to add prechecks for all the conditions that would trigger exceptions.
 
-Advanced Ranges: Writing Modular, Clean, and Efficient code with Custom Views
-====
+## _Advanced Ranges: Writing Modular, Clean, and Efficient code with Custom Views_ by Steve Sorkin
+
 
 I remember the talk to be quite technically advanced so I'll write about what I learned about the subject afterwards instead.
 
@@ -123,9 +120,10 @@ int main()
 
 A reason this code is performant is that views are lazily evaluated. This means when you write `arr | std::views::filter(isEven) | std::views::take(3), print)`, essentially nothing is done. The result is computed on the go as you iterate over it! Moreover, no space is needed to store any intermediate results. 
 
-When using the pipe syntax for views, the things in between bars are called _range adaptors_ (for example, `filter(isEven)` and `take(3)`); applying range adaptors to views result in views. A complete list of range adaptors provided by the standard library can be found on cppreference: https://en.cppreference.com/w/cpp/ranges.html#Range_adaptors.
+When using the pipe syntax for views, the things in between bars are called _range adaptors_ (for example, `filter(isEven)` and `take(3)`); applying range adaptors to views result in views. A complete list of range adaptors provided by the standard library can be found on [cppreference](https://en.cppreference.com/w/cpp/ranges.html#Range_adaptors).
 
-# C++ Contracts: A Meaningfully Viable Product & Should I Check for Null Here?
+## _C++ Contracts: A Meaningfully Viable Product_ by Andrei Zissu and _Should I Check for Null Here?_ by Tony Van Eerd
+
 
 These talks really resonated with me because I am a big fan of contracts in programming! When I program, I think about invariants, contracts, and guarantees... When I use an API, I'd like to know what a piece of code can guarantee if I use it correctly. Good news, in C++26, we get contracts!
 
@@ -160,7 +158,22 @@ In the snippet, the part enclosed by `pre(...)` is the precondition; only the pa
 
 The exact semantics of these assertions (i.e whether an assertion is checked, and what happens when it fails, etc) can vary per build, as well as per evaluation of assertion, and are implementation defined. A basic reason is so that different builds can have different behaviors. For example, a debug build could use a semantics that checks the asserts and teriminates on violation, while a release build can simple ignore all asserts. But maybe a more important reason is customizability. C++26 provides the ability to specify your own contract-violation handler, which is a function that takes in an object of type `std::contracts::contract_violation`. This object will contain diagnostic information so that you can decide what to do on a contract violation.
 
-## But what about C asserts?
+### But what about C asserts?
 I think the advantage of contracts is precisely that it is a language feature rather than a macro! This leaves the door open for C++ compilers to use static analysis to optimize code (for example, a compiler can interpret an assert as an "assume"). This is also a step towards "code as proof", where we can have safety guarantees by chaining together pre/post-conditions.
 
 I think the proposals paper for contracts is very well-written and provides further context: [P2900R14](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2025/p2900r14.pdf).
+
+
+
+## General Sentiment on the Advantage of C++ in the AI Age
+
+
+At work, C is still the main language used, so a natural question to ask is: is the convenience provided by C++ replaced by AI? While at the conference, I briefly chatted with a few speakers and participants about this topic. The general sentiment is: no, it is not replaced. The main two points I gathered are as follows.
+
+1. AI still sucks at generating C (and C++) code. The code produced needs to be vetted by human experts, which often saves no time compared to writing it yourself. 
+
+My opinion is that when using AI for software, we ought to make coding a fill-in-the-blank task. Imagine a coding assignment where the program is broken down into functions, each function is declared, and pre- and post-conditions of each function are provided. Even then, we still need to thoroughly check the AI-generated code.
+
+2. C++ is a language whose central tenet is "zero-cost abstraction". This means it aims to provide engineers with helpful abstractions (templates, objects, contracts, ...) with zero runtime overhead. 
+
+The benefit C++ brings in this respect holds regardless of whether you are using human engineers or AI. In other words, AI and C++ help in two different dimensions, so one does not make the other redundant.
