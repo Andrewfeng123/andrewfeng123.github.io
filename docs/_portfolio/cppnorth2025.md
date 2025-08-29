@@ -1,7 +1,7 @@
 ---
 title: "CppNorth 2025 Report"
-date: 2025-07-24
-last_modified_at: 2024-07-24
+date: 2025-08-26
+last_modified_at: 2025-08-26
 # excerpt: 
 header:
   # image: 
