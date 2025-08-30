@@ -170,10 +170,10 @@ I think the proposals paper for contracts is very well-written and provides furt
 
 At work, C is still the main language used, so a natural question to ask is: is the convenience provided by C++ replaced by AI? While at the conference, I briefly chatted with a few speakers and participants about this topic. The general sentiment is: no, it is not replaced. The main two points I gathered are as follows.
 
-	* AI still sucks at generating C (and C++) code. The code produced needs to be vetted by human experts, which often saves no time compared to writing it yourself. 
+* AI still sucks at generating C (and C++) code. The code produced needs to be vetted by human experts, which often saves no time compared to writing it yourself. 
 
 My opinion is that when using AI for software, we ought to make coding a fill-in-the-blank task. Imagine a coding assignment where the program is broken down into functions, each function is declared, and pre- and post-conditions of each function are provided. Even then, we still need to thoroughly check the AI-generated code.
 
-	* C++ is a language whose central tenet is "zero-cost abstraction". This means it aims to provide engineers with helpful abstractions (templates, objects, contracts, ...) with zero runtime overhead. 
+* C++ is a language whose central tenet is "zero-cost abstraction". This means it aims to provide engineers with helpful abstractions (templates, objects, contracts, ...) with zero runtime overhead. 
 
 The benefit C++ brings in this respect holds regardless of whether you are using human engineers or AI. In other words, AI and C++ help in two different dimensions, so one does not make the other redundant.
