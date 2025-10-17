@@ -1,7 +1,7 @@
 ---
-title: "Reality is Broken: Why Games Make Us Better and How They Can Change the World"
-date: 2025-09-22
-last_modified_at: 2025-09-22
+title: "Strong Towns: A Bottom-Up Revolution to Rebuild American Prosperity"
+date: 2025-10-17
+last_modified_at: 2025-10-17
 header:
 ---
 
